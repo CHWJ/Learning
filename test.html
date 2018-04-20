@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>:target pseudoclass example</title>
+<style>
+#newcomment {
+  display: none;
+}
+
+#newcomment:target {
+  display: block;
+}
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+ <p><a href="#newcomment">Add a comment</a></p>
+ <div id="newcomment">
+  <form name="myForm">
+  <p>Write your comment:<br />
+  <textarea name="myTextarea"></textarea></p>
+  </form>
+ </div>
+ <script>
+	 var temp="";
+	 var index = 0;
+var param = {
+                DeviceId: "1",
+                DeviceTableName: "2"
+            };
+$.each(param, function (propName, propValue) {
+                temp += index == 0 
+                        ? "?" + propName + "=" + propValue
+                        : "&" + propName + "=" + propValue;
+                index++;
+            });
+ </script>
+</body>
+</html>
