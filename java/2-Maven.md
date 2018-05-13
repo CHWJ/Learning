@@ -26,3 +26,26 @@
     <mirrorOf>JBoss Releases</mirrorOf>
 </mirror>  
 ```
+
+## 插件
+- `maven-compiler-plugin` 指定JDK版本和编码
+    > maven是个项目管理工具，如果我们不告诉它我们的代码要使用什么样的jdk版本编译的话，它就会用maven-compiler-plugin默认的jdk版本来进行处理，这样就容易出现版本不匹配的问题，以至于可能导致编译不通过的问题。例如代码中要是使用上了jdk1.7的新特性，但是maven在编译的时候使用的是jdk1.6的版本，那这一段代码是完全不可能编译成.class文件的。为了处理这一种情况的出现，在构建maven项目的时候，我习惯性第一步就是配置maven-compiler-plugin插件。
+    
+    配置文件 `pom.xml` 中添加
+    ``` xml
+    <build>  
+        <plugins>  
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-compiler-plugin</artifactId>  
+                <version>3.6.0</version>  
+                <configuration>
+                    <!-- 源代码使用的开发版本 -->
+                    <source>1.8</source>
+                    <!-- 需要生成的目标class文件的编译版本 -->
+                    <target>1.8</target>
+                </configuration>  
+            </plugin>  
+        </plugins>  
+    </build>  
+    ```
