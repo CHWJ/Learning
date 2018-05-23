@@ -11,7 +11,9 @@
         xdebug.remote_autostart = 1
         xdebug.remote_handler=dbgp
         xdebug.remote_mode=req
-        xdebug.remote_port=9000//这里表示服务器的监听端口
-        xdebug.idekey="phpStorm";//这里是调试器的关键字 在Chrome以及FireFox中插件配置的时候要用到
+        ; 这里表示服务器的监听端口
+        xdebug.remote_port=9000
+        ; 这里是调试器的关键字 在Chrome以及FireFox中插件配置的时候要用到
+        xdebug.idekey="phpStorm"
         ```
     - 重启`webserver`（Apache等）
