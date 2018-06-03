@@ -9,3 +9,11 @@
     1. 选择 `JDK` 所在目录
     2. 选择 `Spring Initializr` 服务器
         - ![Spring Initializr](/resource/image/java/spring-boot2/2018-06-01_224731.png)
+    3. 填入 `Group`、`Artifact` 等信息
+    4. 选择依赖 `Web`->`Web`
+    5. 填入项目名称、路径等信息
+
+## `Spring Boot`配置
+项目的配置文件一般是 `application.properties`，其路径是 `your project\src\main\resources\application.properties`。
+- `server.port` 服务器 HTTP 端口，默认是 `8080`
+
