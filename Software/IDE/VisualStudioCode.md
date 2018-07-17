@@ -1,3 +1,7 @@
+## 快捷键
+- 删除行尾空白符 `ctrl+k ctrl+x`
+
+
 ## 插件
 ### PHP Debug
 - 来源[在此](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)
