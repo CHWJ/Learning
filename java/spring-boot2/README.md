@@ -4,8 +4,8 @@
 本系列为 `Spring Boot 2.X` 开发Web指南
 
 ## 目录
-- [0x00 搭建环境](1-搭建环境.md)
-- [0x01 构建Spring Boot工程](2-构建SpringBoot工程.md)
+- [0x01 搭建环境](1-搭建环境.md)
+- [0x02 构建Spring Boot工程](2-构建SpringBoot工程.md)
 
 ## 参考列表
 - [一起来学SpringBoot](http://blog.battcn.com/categories/SpringBoot/)
