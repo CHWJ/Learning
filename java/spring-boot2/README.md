@@ -6,6 +6,8 @@
 ## 目录
 - [0x01 搭建环境](1-搭建环境.md)
 - [0x02 构建Spring Boot工程](2-构建SpringBoot工程.md)
+- [0x03 项目配置及启动](3-项目配置及启动.md)
+- [0x04 整合Thymeleaf模板](4-整合Thymeleaf模板.md)
 
 ## 参考列表
 - [一起来学SpringBoot](http://blog.battcn.com/categories/SpringBoot/)
