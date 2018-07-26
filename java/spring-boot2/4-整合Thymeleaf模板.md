@@ -61,13 +61,27 @@
     ``` html
     <!DOCTYPE html>
     <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title th:text="${title}">Title</title>
-    </head>
-    <body>
-    <p th:text="${employee?.name}"></p>
-    <p th:text="${employee?.id}"></p>
-    </body>
+        <head>
+            <meta charset="UTF-8">
+            <title th:text="${title}">Title</title>
+        </head>
+        <body>
+            <script th:inline="javascript">
+                var test = [[${employee}]];
+                console.log(test); // {id: 18, name: "jim"}
+            </script>
+            <p th:text="${employee?.name}"></p>
+            <p th:text="${employee?.id}"></p>
+        </body>
     </html>
     ```
+
+## 模板热部署
+> 修改静态页面都需要重启才生效，这点是很不友好的。原因是为了提高响应速度，默认情况下会缓存模板。
+开发时在 `application.properties` 文件添加如下，修改静态内容时按 `Ctrl+Shift+F9` 即可重新加载
+``` xml
+spring.thymeleaf.cache = false
+```
+
+## 参考
+- [thymeleaf 参考手册](https://blog.csdn.net/zrk1000/article/details/72667478)
