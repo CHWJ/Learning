@@ -74,3 +74,6 @@ public class OrganController {
 ...
 ```
 7. 使用浏览器访问 `http://localhost:9090/dev/organ/getAll`，`F12` 打开 `开发者工具` ，可在 `Console` 窗口看到输出JS数组
+
+## 参考
+- [JdbcTemplate API文档](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)

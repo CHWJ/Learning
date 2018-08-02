@@ -8,7 +8,8 @@
 - [0x02 构建Spring Boot工程](2-构建SpringBoot工程.md)
 - [0x03 项目配置及启动](3-项目配置及启动.md)
 - [0x04 整合Thymeleaf模板](4-整合Thymeleaf模板.md)
-- [0x04 使用JdbcTemplate访问数据库](5-使用JdbcTemplate访问数据库.md)
+- [0x05 使用JdbcTemplate访问数据库](5-使用JdbcTemplate访问数据库.md)
+- [0x06 使用SpringDataJpa访问数据库](6-使用SpringDataJpa访问数据库.md)
 
 ## 参考列表
 - [一起来学SpringBoot](http://blog.battcn.com/categories/SpringBoot/)
