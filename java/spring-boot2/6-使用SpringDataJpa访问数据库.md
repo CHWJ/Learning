@@ -10,7 +10,7 @@
     - 丰富的API，简单操作无需编写额外的代码
     - 丰富的SQL日志输出
 - 缺点
-    - 学习成本较大，需要学习`HQL`
+    - 学习成本较大，需要学习`HQL`(`Hibernate Query Language`)
     - 配置复杂，虽然`SpringBoot`简化的大量的配置，关系映射多表查询配置依旧不容易
     - 性能较差，对比`JdbcTemplate`、`Mybatis`等ORM框架，它的性能无异于是最差的
 ### Spring Data JPA使用
@@ -43,5 +43,99 @@ spring.jpa.database=mysql
 - `spring.jpa.hibernate.ddl-auto`的几种值
     - create： 每次运行程序时，都会重新创建表，故而`数据会丢失`
     - create-drop： 每次运行程序时会先创建表结构，然后待程序结束时清空表
-    - upadte： 每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（`推荐使用`）
+    - update： 每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（`推荐使用`）
     - validate： 运行程序会校验数据与数据库的字段类型是否相同，字段不同会报错
+3. 新建实体类 `UserModel.java`
+``` java
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.io.Serializable;
+
+// 指定映射实体到 a_user 表
+@Entity(name = "a_user")
+public class UserModel implements Serializable {
+    // 指定主键
+    @Id
+    private String id;
+    private String name;
+
+    /**
+     * 忽略该字段的映射
+     */
+    @Transient
+    private String email;
+
+    // 省略 getter、setter
+
+    // 没有默认构造函数的话，会报错 org.hibernate.InstantiationException:No default constructor for entity
+    public UserModel() { }
+
+    public UserModel(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+```
+4. 新建数据访问层接口 `UserRepository.java`。`JpaRepository<T,K>`，第一个泛型参数是实体对象的名称，第二个是主键类型。
+``` java
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface UserRepository extends JpaRepository<UserModel, String> {
+    List<UserModel> findAllByName(String userName);
+}
+
+```
+5. 新建 `UserController.java`
+``` java
+import org.nyqk.demo.entity.UserModel;
+import org.nyqk.demo.entity.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.UUID;
+
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping("getAll")
+    public ModelAndView getAll() {
+        final UserModel user = userRepository.save(new UserModel(UUID.randomUUID().toString(), "jim"));
+
+        List<UserModel> list = userRepository.findAllByName("jim");
+
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/User/index");
+        view.addObject("list", list);
+        return view;
+    }
+}
+```
+6. 在 `\templates\User` 目录新建 `index.html`文件
+``` html
+...
+<body>
+<script th:inline="javascript">
+    console.log("list", [[${list}]]);
+</script>
+</body>
+...
+```
+7. 使用浏览器访问 `http://localhost:9090/dev/user/getAll`，`F12` 打开 `开发者工具` ，可在 `Console` 窗口看到输出JS数组 `[{"id":"30af2dbc-01de-41cc-85f0-2b3ef238d992","name":"jim"}]`
+
+## 参考
+- [Spring Data JPA - Reference Documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html)
