@@ -13,6 +13,8 @@
 - [0x07 使用Mybatis访问数据库](7-使用Mybatis访问数据库.md)
 - [0x08 集成Swagger在线文档与调试](8-集成Swagger在线文档与调试.md)
 - [0x09 初探RabbitMQ消息队列](9-初探RabbitMQ消息队列.md)
+- [0x10 文件上传](10-文件上传.md)
+- [0x11 全局异常](11-全局异常.md)
 
 ## 参考列表
 - [一起来学SpringBoot](http://blog.battcn.com/categories/SpringBoot/)
