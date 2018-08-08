@@ -1,7 +1,7 @@
 ## 介绍
 > `Thymeleaf` 是现代化服务器端的 `Java` 模板引擎，不同与其它几种模板的是 `Thymeleaf` 的语法更加接近 `HTML`，并且具有很高的扩展性。详细资料可以浏览[官网](https://www.thymeleaf.org/)。
 
-## 教程
+## 简明教程
 1. 在 `pom.xml` 中添加对 `Thymeleaf` 依赖
     ``` xml
     <dependency>
@@ -83,5 +83,20 @@
 spring.thymeleaf.cache = false
 ```
 
+## 实用教程
+- [母版页](#Layout)
+
+### `Layout`
+> 使用片段（fragment）实现母版页（Layout）功能
+
+|                   |                      | 
+|-------------------|----------------------| 
+| 语法/标签          | 说明                   | 
+| layout:fragment   | 定义模板片段，可以在子页面用同名片段覆盖 | 
+| layout:decorator  | 引用Thymeleaf页面作为母版/模板 | 
+
+
+
 ## 参考
 - [thymeleaf 参考手册](https://blog.csdn.net/zrk1000/article/details/72667478)
+- [Thymeleaf使用技巧：使用片段（fragment）实现母版页（Layout）功能](https://ken.io/note/thymeleaf-skill-layout)
