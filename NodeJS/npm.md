@@ -8,7 +8,7 @@
 - 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
 
 ### npm 安装
-`cmd`中输入`npm -v`来测试是否安装成功
+`cmd` 中输入`npm -v`来测试是否安装成功
 
 ### npm 升级
 `nom install npm -g`
@@ -25,4 +25,13 @@
 
 `npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
-这样就可以使用 cnpm 命令来安装模块了：`cnpm install [name]`
+这样就可以使用 `cnpm` 命令来安装模块了：`cnpm install [name]`
+
+### npm 查看设置
+`npm config list`
+
+### npm 设置代理
+- `npm config set proxy http://127.0.0.1:1080`
+- `npm config set https-proxy http://127.0.0.1:1080`
+- `npm config delete proxy`
+- `npm config delete https-proxy`
