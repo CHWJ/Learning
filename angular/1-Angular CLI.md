@@ -3,6 +3,19 @@
 
 ## 设置开发环境
 - 全局安装 `Angular CLI`
-``` powershell
-npm install -g @angular/cli
-```
+    ``` powershell
+    npm install -g @angular/cli
+    ```
+
+## 创建新项目
+- `Angular CLI` 会安装必要的 NPM 包、创建项目文件，并在该项目中生成一个简单的默认应用。这可能要花一点时间。
+    ``` powershell
+    ng new appName
+    ```
+
+## 启动开发服务器
+- `ng serve` 命令会启动开发服务器，监听文件变化，并在修改这些文件时重新构建此应用。使用 `--open`（或 `-o`）参数可以自动打开浏览器并访问 http://localhost:4200/。
+    ``` powershell
+    cd my-app
+    ng serve --open
+    ```
