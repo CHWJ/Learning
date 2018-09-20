@@ -31,8 +31,8 @@
 ``` xml
 # 数据库连接
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/dianli?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
-spring.datasource.password=
 spring.datasource.username=root
+spring.datasource.password=
 # JPA配置
 spring.jpa.hibernate.ddl-auto=update
 # 输出日志
