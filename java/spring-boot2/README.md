@@ -15,6 +15,7 @@
 - [0x09 初探RabbitMQ消息队列](9-初探RabbitMQ消息队列.md)
 - [0x10 文件上传](10-文件上传.md)
 - [0x11 全局异常](11-全局异常.md)
+- [0x12 Spring Boot框架学习](12-SpringBoot框架学习.md)
 
 ## 参考列表
 - [一起来学SpringBoot](http://blog.battcn.com/categories/SpringBoot/)

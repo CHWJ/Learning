@@ -136,7 +136,7 @@
         }
         ```
     - `Model` Spring MVC中通用的模型
-        - MVC框架中存在一个类似Map结构的 Model，可以向Mdel中添加视图需要的变量
+        - MVC框架中存在一个类似Map结构的 Model，可以向Model中添加视图需要的变量
         - Model对象用于方法参数的时候，Spring MVC在调用方法前自动创建 Model
             ``` java
             @Controller
