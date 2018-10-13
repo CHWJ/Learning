@@ -9,3 +9,6 @@
     yum check-update
     sudo yum install code
     ```
+
+## 用root打开code
+- sudo /usr/share/code/code --unity-launch
