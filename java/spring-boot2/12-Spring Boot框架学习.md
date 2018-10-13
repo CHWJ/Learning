@@ -26,6 +26,7 @@
     - [`@Repositpry`](#`@Repositpry`) 在数据访问层（dao层）使用
     - [`@Controller`](#`@Controller`) 用于标注控制层组件
     - [`@RestController`](#`@RestController`)
+    - [@JsonFormat](#@JsonFormat)
 - 注入Bean的注解
     - [`@Autowired`](#`@Autowired`)
     - [`@Qualifier`](#`@Qualifier`)
@@ -204,6 +205,14 @@ public class ResponseBodyTest {
 
 ### `@Qualifier`
 > 当使用 `@Autowired` 注解属性时，如果Spring 容器中有多个对应的实现，则需要 `@Qualifier` 注解来指定需要自动装配的Bean的名称。
+
+### @JsonFormat
+- 用于属性上
+- 把时间类型直接转化为想要的格式，如
+    ``` java
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private LocalDateTime created;
+    ```
 
 ### `@Configration`
 声明当前类是一个配置类，相当于Spring中的一个XML文件
