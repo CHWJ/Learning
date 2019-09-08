@@ -8,3 +8,7 @@
 ### Windows
 
 ### Linux
+
+### 编程
+- IDE
+  - IntelliJ IDEA [下载地址](https://download.jetbrains.8686c.com/idea/ideaIU-2019.1.2.exe)
