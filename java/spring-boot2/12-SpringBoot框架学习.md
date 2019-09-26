@@ -23,7 +23,7 @@
 - 声明Bean的注解
     - [`@Component`](#`@Component`) 没有明确角色的组件
     - [`@Service`](#`@Service`) 在业务逻辑层（Service层）使用
-    - [`@Repositpry`](#`@Repositpry`) 在数据访问层（dao层）使用
+    - [`@Repository`](#`@Repository`) 在数据访问层（dao层）使用
     - [`@Controller`](#`@Controller`) 用于标注控制层组件
     - [`@RestController`](#`@RestController`)
     - [@JsonFormat](#@JsonFormat)
@@ -56,7 +56,7 @@
 - `session` 只适用于Web程序，针对每一次HTTP请求都会产生一个新的bean，同时该bean仅在当前HTTP session内有效
 - `application` 只适用于Web程序，全局作用域
 
-### `@Repositpry`
+### `@Repository`
 - @Repository 注解作用在类上
 - @Repository 注解作用域默认为 singleton
 - 使用注解配置和类路径扫描时，被 @Repository 注解标注的类会被Spring扫描并注册为 Bean
