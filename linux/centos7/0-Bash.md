@@ -9,6 +9,7 @@
 - [ps](#ps)
 - [top](#top)
 - [pidof](#pidof)
+- [firewall-cmd](#firewall-cmd)
 
 ### echo
 - 输出字符串
@@ -120,4 +121,21 @@
     ``` bash
     # pidof code
     71302 71234 71206 71188 71183 71160 71081 70933 70901 70899
+    ```
+
+### firewall-cmd
+- 开放端口（需要firewall-cmd --reload）
+    ``` bash
+    firewall-cmd --zone=public --add-port=5000/tcp --permanent
+    ```
+- 重新载入配置
+    ``` bash
+    firewall-cmd --reload
+    ```
+- firewall状态
+    ``` bash
+    systemctl status firewalld
+    systemctl stop firewalld
+    systemctl start firewalld
+    systemctl restart firewalld
     ```
