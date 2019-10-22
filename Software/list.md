@@ -11,4 +11,5 @@
 
 ### 编程
 - IDE
-  - IntelliJ IDEA [下载地址](https://download.jetbrains.8686c.com/idea/ideaIU-2019.1.2.exe)
+  - IntelliJ IDEA [下载地址](http://data.services.jetbrains.com/products/download?code=IIU&platform=windows)
+  - JetBrains ReSharperUltimate [下载地址](http://data.services.jetbrains.com/products/download?code=RSU&platform=windows)
