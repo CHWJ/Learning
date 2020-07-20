@@ -44,3 +44,4 @@
     jar -uvf0 xxx-epm-main-1.0-SNAPSHOT.jar BOOT-INF/lib/xxx-epm-officevisualization-1.0-SNAPSHOT.jar
     // 输出：正在添加: BOOT-INF/lib/xxx-epm-officevisualization-1.0-SNAPSHOT.jar(输入 = 58834) (输出 = 58834)(存储了 0%)
     ```
+- 打包 `jar -cfm0 xxx.jar /xxx/META-INF/MANIFEST.MF -C xxx .`
