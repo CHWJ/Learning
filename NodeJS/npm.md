@@ -10,11 +10,20 @@
 ### npm 安装
 `cmd` 中输入`npm -v`来测试是否安装成功
 
+### npm 镜像
+
+- npm config set registry https://registry.npm.taobao.org
+
 ### npm 升级
 `nom install npm -g`
 
 ### 安装模块
-`npm install <Module Name>`
+
+- `npm install <Module Name>`
+- 全局安装
+  - `npm install -g <Module Name>`
+- 检测是否安装成功
+  - `<Module Name> -h`
 
 ### 卸载模块
 `npm uninstall <Module Name>`
