@@ -177,7 +177,7 @@
 ## rar
 
 - 解压 rar x test.rar ./
-- 压缩 rar test.rar ./test
+- 压缩 rar a test.rar ./test
 
 ## zip
 
