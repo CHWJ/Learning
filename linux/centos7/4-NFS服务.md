@@ -7,22 +7,22 @@
   - [/etc/exports文件格式](#etcexports文件格式)
   - [服务启动顺序](#服务启动顺序)
   - [客户端查询 NFS 服务器的远程共享信息](#客户端查询-nfs-服务器的远程共享信息)
-    - [how](#how)
-      - [永久挂载共享目录](#永久挂载共享目录)
-    - [常见故障解决方法](#常见故障解决方法)
-      - [The rpcbind failure error](#the-rpcbind-failure-error)
-      - [The server not responding error](#the-server-not-responding-error)
-      - [The NFS client fails a reboot error](#the-nfs-client-fails-a-reboot-error)
-      - [The service not responding error](#the-service-not-responding-error)
-      - [The program not registered error](#the-program-not-registered-error)
-      - [The stale file handle error](#the-stale-file-handle-error)
-      - [The unknown host error](#the-unknown-host-error)
-      - [The mount point error](#the-mount-point-error)
-      - [The no such file error](#the-no-such-file-error)
-      - [No route to host](#no-route-to-host)
-      - [Not owner](#not-owner)
-      - [RPC: Program not registered & retrying](#rpc-program-not-registered--retrying)
-      - [can’t contact portmapper: RPC: Remote system error – Connection refused](#cant-contact-portmapper-rpc-remote-system-error--connection-refused)
+  - [how](#how)
+    - [永久挂载共享目录](#永久挂载共享目录)
+  - [常见故障解决方法](#常见故障解决方法)
+    - [`The rpcbind failure error`](#the-rpcbind-failure-error)
+    - [`The server not responding error`](#the-server-not-responding-error)
+    - [`The NFS client fails a reboot error`](#the-nfs-client-fails-a-reboot-error)
+    - [`The service not responding error`](#the-service-not-responding-error)
+    - [`The program not registered error`](#the-program-not-registered-error)
+    - [`The stale file handle error`](#the-stale-file-handle-error)
+    - [`The unknown host error`](#the-unknown-host-error)
+    - [`The mount point error`](#the-mount-point-error)
+    - [`The no such file error`](#the-no-such-file-error)
+    - [`No route to host`](#no-route-to-host)
+    - [`Not owner`](#not-owner)
+    - [`RPC: Program not registered & retrying`](#rpc-program-not-registered--retrying)
+    - [`can’t contact portmapper: RPC: Remote system error – Connection refused`](#cant-contact-portmapper-rpc-remote-system-error--connection-refused)
   - [资料](#资料)
 
 ## 简介
@@ -89,17 +89,17 @@ Export list for 192.168.1.116:
 /var/www/mco/Resource    *
 ```
 
-### how
+## how
 
-#### 永久挂载共享目录
+### 永久挂载共享目录
 
 ``` sh
 echo "mount -t nfs 192.168.1.116:/root/nfsfile /mnt/nfsfile" >> /etc/rc.d/rc.local　　# 将挂载命令写入 rc.local
 ```
 
-### 常见故障解决方法
+## 常见故障解决方法
 
-#### The rpcbind failure error
+### `The rpcbind failure error`
 
 故障现象：
 nfs mount: server1:: RPC: Rpcbind failure
@@ -109,7 +109,7 @@ nfs mount: retrying: /mntpoint
 故障原因：第一，可能因为客户机的hosts文件中存在错误的ip地址、主机名或节点名组合；
 第二，服务器因为过载而暂时停止服务。
 
-#### The server not responding error
+### `The server not responding error`
 
 故障现象：
 NFS server server2 not responding, still trying
@@ -118,7 +118,7 @@ NFS server server2 not responding, still trying
 第二，服务器关机。
  
 
-#### The NFS client fails a reboot error
+### `The NFS client fails a reboot error`
 
 故障现象：
 启动客户机后停住了，不断显示如下提示信息：
@@ -127,7 +127,7 @@ client_node_name.
  
 故障原因：在etc/vfstab的mount选项中使用了fg而又无法成功mount服务器上的资源，改成bg或将该行注释掉，直到服务器可用为止。
 
-#### The service not responding error
+### `The service not responding error`
 
 故障现象：
 nfs mount: dbserver: NFS: Service not responding
@@ -136,7 +136,7 @@ nfs mount: retrying: /mntpoint
 故障原因：第一，当前级别不是级别3，用who -r查看，用init 3切换。
 第二，NFS Server守护进程不存在，用ps -ef | grep nfs检查，用/etc/init.d/nfs start启动。
 
-#### The program not registered error
+### `The program not registered error`
 
 故障现象：
 nfs mount: dbserver: RPC: Program not registered
@@ -146,35 +146,35 @@ nfs mount: retrying: /mntpoint
 第二，mountd守护进程没有启动，用/etc/init.d/nfs脚本启动NFS守护进程。
 第三，看/etc/dfs/dfstab中的条目是否正常。
 
-#### The stale file handle error
+### `The stale file handle error`
 
 故障现象：
 stale NFS file handle
  
 故障原因：服务器上的共享资源移动位置了，在客户端使用umount和mount重新挂接就可以了。
 
-#### The unknown host error
+### `The unknown host error`
 
 故障现象：
 nfs mount: sserver1:: RPC: Unknown host
  
 故障原因：hosts文件中的内容不正确。
 
-#### The mount point error
+### `The mount point error`
 
 故障现象：
 mount: mount-point /DS9 does not exist.
  
 故障原因：该挂接点在客户机上不存在，注意检查命令行或/etc/vfstab文件中相关条目的拼写。
 
-#### The no such file error
+### `The no such file error`
 
 故障现象：
 No such file or directory.
  
 故障原因：该挂接点在服务器上不存在，注意检查命令行或/etc/vfstab文件中相关条目的拼写。
 
-#### No route to host
+### `No route to host`
 
 故障现象：
 $mount 192.168.115.120:/opt/data /data -t nfs -o rw
@@ -183,7 +183,7 @@ mount: mount to NFS server ‘192.168.115.120’ failed: System Error: No route 
 故障原因：防火墙被打开，关闭防火墙。
 这个原因很多人都忽视了，如果开启了防火墙（包括iptables和硬件防火墙），NFS默认使用111端口，我们先要检测是否打开了这个端口，还要检查TCP_Wrappers的设定。
 
-#### Not owner
+### `Not owner`
 
 故障现象：
 $mount -F nfs -o rw 192.168.115.120:/mnt/data /data
@@ -195,7 +195,7 @@ nfs mount: mount: /data: Not owner
 示例：
 $mount -F nfs -o vers=3 192.168.115.120:/mnt/data /data
 
-#### RPC: Program not registered & retrying
+### `RPC: Program not registered & retrying`
 
 故障现象：
 nfs mount: 192.168.115.120: : RPC: Program not registered
@@ -210,7 +210,7 @@ Solaris:
 mount: RPC: Program not registered
 $/etc/rc.d/init.d/nfs restart
 
-#### can’t contact portmapper: RPC: Remote system error – Connection refused
+### `can’t contact portmapper: RPC: Remote system error – Connection refused`
 
 故障现象：
 $exportfs -a
@@ -222,4 +222,4 @@ $/etc/init.d/portmap start
 
 ## 资料
 
-- [dd](https://blog.51cto.com/longlei/2072847)
+- [NFS服务的简介及常见故障解决方法](https://blog.51cto.com/longlei/2072847)
