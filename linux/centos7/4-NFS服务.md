@@ -7,7 +7,7 @@
   - [/etc/exports文件格式](#etcexports文件格式)
   - [服务启动顺序](#服务启动顺序)
   - [客户端查询 NFS 服务器的远程共享信息](#客户端查询-nfs-服务器的远程共享信息)
-  - [how](#how)
+  - [How](#how)
     - [永久挂载共享目录](#永久挂载共享目录)
   - [常见故障解决方法](#常见故障解决方法)
     - [`The rpcbind failure error`](#the-rpcbind-failure-error)
@@ -89,7 +89,7 @@ Export list for 192.168.1.116:
 /var/www/mco/Resource    *
 ```
 
-## how
+## How
 
 ### 永久挂载共享目录
 

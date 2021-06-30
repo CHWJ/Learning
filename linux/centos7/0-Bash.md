@@ -24,10 +24,15 @@
   - [字符串](#字符串)
   - [数组](#数组)
   - [vi](#vi)
+  - [screen](#screen)
+  - [less](#less)
+  - [grep](#grep)
 
 ## yum
 
 - `yum -y update` 更新包
+- `yum list installed wireshark*` 查看是否安装
+- `yum install wireshark` 安装包
 
 ## echo
 - 输出字符串
@@ -251,3 +256,35 @@
 - 显示行号 `:set nu` or `:set number`
 - 打开文件时跳转到特定行 `vi +linenumber file`
 - 打开文件时跳转到特定字符 `vi +/string  file`
+
+## screen
+
+``` bash
+screen -S yourname -> 新建一个叫yourname的session
+screen -ls -> 列出当前所有的session
+screen -r sessionId -> 回到sessionId这个session
+screen -d yourname -> 远程detach某个session
+screen -d -r yourname -> 结束当前session并回到yourname这个session
+```
+
+## less
+
+- 可选参数
+  - `-N` 显示行号
+  - `-i` 搜索时大小写不敏感
+- `g` or `<` 移动到最后一行
+- `G` or `>` 移动到最后一行
+- `<n>g` 跳转到第n行
+- `?⟨text⟩` 使用正则向前搜索
+- `/⟨text⟩` 使用正则向后搜索
+- `n` 前一个搜索匹配
+- `N` 前一个搜索匹配
+- `q` 退出
+
+## grep
+
+- `-E` 
+
+``` bash
+grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
+```

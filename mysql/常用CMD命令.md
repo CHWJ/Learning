@@ -1,4 +1,20 @@
 # 目录
+- [目录](#目录)
+	- [更改用户主机](#更改用户主机)
+	- [设置密码](#设置密码)
+	- [配置远程访问](#配置远程访问)
+	- [远程访问](#远程访问)
+	- [备份](#备份)
+	- [还原](#还原)
+	- [启用通用日志](#启用通用日志)
+	- [my.ini](#myini)
+
+## 更改用户主机
+
+``` sql
+RENAME USER 'wordpress'@'%' TO 'wordpress'@'localhost';
+FLUSH PRIVILEGES;
+```
 
 ## 设置密码
 
@@ -39,3 +55,19 @@ mysql -h192.168.2.198 -P3306 -uroot -pabcd@1234;
 - source file（在MySQL shell中执行）
 - mysqldump -u用户名 -p密码 -h主机 数据库 < 路径
 
+## 启用通用日志
+
+通用日志：记录建立的客户端连接和执行的语句。
+
+- `XAMPP`
+    - 在`my.ini`中添加
+        - `general_log = ON`。`on`启用，`off`禁用
+        - `log_output = TABLE`。`TABLE`在数据库中记录，`FILE`在文件中记录
+- `mysql`命令行
+    1. 打开`cmd`
+    2. 输入`mysql`
+    3. 输入`show variables like '%general%';`![图1](/resource/image/2017-10-19_153239.png)
+
+## my.ini
+
+- skip-grant-tables=1   让 mysqld 启动时不对密码进行验证
