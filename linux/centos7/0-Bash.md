@@ -256,15 +256,20 @@
 - 显示行号 `:set nu` or `:set number`
 - 打开文件时跳转到特定行 `vi +linenumber file`
 - 打开文件时跳转到特定字符 `vi +/string  file`
+- 查找 `/`
+  - 下一个出现 `n`
+  - 上一个出现 `N`
 
 ## screen
 
 ``` bash
+yum install screen
 screen -S yourname -> 新建一个叫yourname的session
 screen -ls -> 列出当前所有的session
-screen -r sessionId -> 回到sessionId这个session
+screen -r sessionId -> 重新连接sessionId会话
 screen -d yourname -> 远程detach某个session
 screen -d -r yourname -> 结束当前session并回到yourname这个session
+screen -wipe  清除dead状态的会话
 ```
 
 ## less
@@ -278,7 +283,7 @@ screen -d -r yourname -> 结束当前session并回到yourname这个session
 - `?⟨text⟩` 使用正则向前搜索
 - `/⟨text⟩` 使用正则向后搜索
 - `n` 前一个搜索匹配
-- `N` 前一个搜索匹配
+- `N` 后一个搜索匹配
 - `q` 退出
 
 ## grep

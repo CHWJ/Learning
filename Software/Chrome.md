@@ -4,6 +4,8 @@
     - [Filter](#filter)
       - [请求状态非200](#请求状态非200)
   - [chrome://about/](#chromeabout)
+  - [console](#console)
+    - [打印带颜色字符串](#打印带颜色字符串)
 
 
 ## Network
@@ -95,3 +97,11 @@ The following pages are for debugging purposes only. Because they crash or hang 
 - chrome://ppapiflashhang
 - chrome://quit/
 - chrome://restart/
+
+## console
+
+### 打印带颜色字符串
+
+``` js
+console.log(x.text + " expand: %c" + x.shouldExpand, "font-weight: bold;color: red;");
+```
