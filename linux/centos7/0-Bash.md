@@ -27,6 +27,7 @@
   - [screen](#screen)
   - [less](#less)
   - [grep](#grep)
+  - [tail](#tail)
 
 ## yum
 
@@ -293,3 +294,9 @@ screen -wipe  清除dead状态的会话
 ``` bash
 grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
 ```
+
+## tail
+
+- `-f` 显示文件最新追加的内容。等同于`--follow=descriptor`，根据文件描述符进行追踪，当文件改名或被删除，**追踪停止**
+- `-F` 显示文件最新追加的内容。等同于`--follow=name --retry`，根据文件名进行追踪，并保持重试，即该文件被删除或改名后，如果再次创建相同的文件名，会**继续追踪**
+- `-n num` 查看最后`num`行内容
