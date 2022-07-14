@@ -52,6 +52,7 @@
 ### 缓存
 
 - `npm config get cache` 查看缓存目录的具体位置
+- `npm cache clean --force` 强制清除缓存?
 
 ### 模块的安装过程
 
