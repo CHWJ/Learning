@@ -1,4 +1,9 @@
 # 目录
+- [目录](#目录)
+  - [选择jdk](#选择jdk)
+  - [设置环境变量](#设置环境变量)
+  - [刷新环境变量](#刷新环境变量)
+  - [参考](#参考)
 
 ## 选择jdk
 
@@ -17,7 +22,7 @@ PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ```
 
-## 
+## 刷新环境变量
 ``` bash
 source /etc/profile
 ```
