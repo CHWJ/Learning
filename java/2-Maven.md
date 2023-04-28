@@ -8,6 +8,11 @@
 - mvn clean # 删除 target
 - mvn install # 安装jar包到本地仓库中
 - mvn archetype:generate -DgroupId=co.hoteam -DartifactId=Zigbee -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false # 创建一个新工程
+- 参数
+  - `-T 4`  4个子进程同时运行
+  - `--fail-never`  无论项目结果如何，构建从不失败
+  - `--fail-fast`  遇到构建失败就直接退出
+  - `--fail-at-end` 仅影响构建结果，允许不受影响的构建继续
 
 ## 镜像
 - IntelliJ IDEA 2018.1.2\plugins\maven\lib\maven2\conf\settings.xml

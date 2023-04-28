@@ -9,6 +9,17 @@
     - 方法引用
 - `@FunctionalInterface` 加上这个注解之后，编译器就会验证该接口是否满足函数式接口的要求
 
+### 常用函数式接口
+
+- `Function<T,R>`
+  - R apply(T t)
+- `Supplier<T>`
+  - T get()
+- `Consumer<T>`
+  - void accept(T t)
+- `Predicate<T>`
+  - boolean test(T t)
+
 ## 方法引用（Method references）
 > `lambda` 表达式被广泛用在函数式编程中，但它们很难阅读和理解。在许多情况下，`传递lambda 表达式（pass-through lambdas）`的存在只是为了传递一个或多个形参，最好将它替换为方法引用。
 

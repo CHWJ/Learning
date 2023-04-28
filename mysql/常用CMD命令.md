@@ -46,7 +46,7 @@ mysql -h192.168.2.198 -P3306 -uroot -pabcd@1234;
 	- 只备份数据
 		- -t
 	- 只备份某库某表
-		- --databases hdkj --tables performance_da
+		- --databases hdkj --tables table_name1 table_name2 table_name3
 	- 排除某库某表
 		- --databases hdkj --ignore-table=database.table1 --ignore-table=database.table2
 
