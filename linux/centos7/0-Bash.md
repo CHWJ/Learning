@@ -2,26 +2,36 @@
 - [目录](#目录)
   - [echo](#echo)
   - [cat](#cat)
+  - [cp](#cp)
+  - [df -\> ncdu](#df---ncdu)
   - [date](#date)
   - [firewall-cmd](#firewall-cmd)
+  - [git](#git)
   - [grep](#grep)
+  - [history 显示历史执行过的命令](#history-显示历史执行过的命令)
+  - [ifconfig -\> ip](#ifconfig---ip)
+  - [killall](#killall)
+  - [last](#last)
   - [less](#less)
   - [pidof](#pidof)
   - [poweroff](#poweroff)
   - [ps](#ps)
+  - [readlink](#readlink)
   - [rar](#rar)
   - [reboot](#reboot)
   - [sed](#sed)
   - [screen](#screen)
   - [tail](#tail)
   - [tar](#tar)
-  - [top](#top)
+  - [top -\> htop](#top---htop)
   - [unzip](#unzip)
+  - [urlencode](#urlencode)
   - [vi](#vi)
   - [wget](#wget)
   - [yum](#yum)
     - [系统](#系统)
     - [软件包](#软件包)
+  - [yum-config-manager](#yum-config-manager)
   - [zip](#zip)
   - [定时任务（crontab）](#定时任务crontab)
   - [磁盘空间](#磁盘空间)
@@ -64,6 +74,16 @@
     # cat /etc/redhat-release
     CentOS Linux release 7.4.1708 (Core)
     ```
+
+## cp
+
+- `cp -r A/. B`  递归复制A目录下的所有目录和文件到B目录
+- `cp -rv A/. B`  递归复制A目录下的所有目录和文件到B目录，并显示进度信息
+- `-f` 如果目标文件已经存在，直接进行覆盖操作，而不会询问确认
+
+## df -> ncdu
+
+[ncdu](/linux/centos7/5-常用软件.md#ncdu)
 
 ## date
 - 显示系统的时间或日期
@@ -122,6 +142,28 @@
     systemctl restart firewalld
     ```
 
+## git
+
+- 升级git
+  ``` bash
+  # 安装IUS仓库
+  yum install \
+  https://repo.ius.io/ius-release-el7.rpm \
+  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  # 验证是否成功
+  yum repolist | grep ius
+
+  # 查看最新版本
+  yum provides git
+
+  # 卸载老版本
+  yum remove git -y
+
+  yum install git236 -y
+  git --version
+  ```
+
 ## grep
 
 - `-E` 
@@ -129,6 +171,53 @@
 ``` bash
 grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
 ```
+
+## history 显示历史执行过的命令
+
+``` bash
+# history
+1001  who
+1002  last
+1003  last | grep log
+1004  history
+
+# history -c 清空历史命令，无返回值
+```
+
+## ifconfig -> ip
+
+- 查看网络接口信息
+  ``` bash
+  ifconfig
+  ```
+- 启用或禁用接口
+  ``` bash
+  ifconfig <interface> up
+  ifconfig <interface> down
+  ```
+- 修改IP地址和子网掩码
+  ``` bash
+  ifconfig <interface> <ip-address> netmask <netmask>
+  ```
+
+## killall
+
+``` bash
+[root@linuxprobe ~]# pidof httpd
+13581 13580 13579 13578 13577 13576
+[root@linuxprobe ~]# killall httpd
+[root@linuxprobe ~]# pidof httpd
+[root@linuxprobe ~]#
+```
+
+## last
+
+- 查看所有系统的登录记录
+  ``` bash
+  # last
+  root     pts/0        192.168.1.55     Tue Jul 11 08:32   still logged in   
+  root     pts/1        192.168.1.22     Fri Jun 30 17:00 - 13:53 (3+20:53)
+  ```
 
 ## less
 
@@ -175,6 +264,12 @@ grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
     - Z 僵死：进程已经终止，但进程描述符依然存在，直到父进程调用 wait4()系统函数后将进程释放
     - T 停止：进程收到停止信号后停止运行
 
+## readlink
+- 打印指定文件的完整路径
+  ``` bash
+  readlink -f file
+  ```
+
 ## rar
 
 - 解压 rar x test.rar ./
@@ -209,17 +304,32 @@ screen -wipe  清除dead状态的会话
 
 ## tar
 
+- `tar -xf filename.tar` 解压.tar文件
+- `tar -zxf filename.tar.gz` 解压.tar.gz文件
 - 解压 tar -zxf file -C path
 - 打包后，以 gzip 压缩 tar -cvzPf /tmp/etc.tar.gz /etc .
 
-## top
+## top -> htop
 > 动态地监视进程活动与系统负载等信息
 
 ![top](/resource/image/centos/2018-10-13_12-49-35.png)
+[htop](/linux/centos7/5-常用软件.md#htop)
 
 ## unzip
 
 - 解压 unzip file -d path
+
+## urlencode
+
+ - [hex,base64,urlencode编码方案对比](https://www.cnblogs.com/codelogs/p/16060248.html#urlencode%E7%BC%96%E7%A0%81)
+
+``` bash
+$ sudo apt install gridsite-clients
+$ urlencode 'a b'
+a%20b
+$ urlencode -d a%20b
+a b
+```
 
 ## vi
 
@@ -265,6 +375,11 @@ screen -wipe  清除dead状态的会话
 - `yum update ncdu` 升级软件包
 - `yum remove ncdu` 删除软件包
 - `yum check-update` 检查可更新的软件包
+
+## yum-config-manager
+
+- `yum-config-manager --list-enabled` 查看当前系统上已经启用的YUM仓库
+- `yum repolist all`  查看所有已经配置的YUM仓库，无论其是否启用
 
 ## zip
 
