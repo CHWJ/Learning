@@ -28,6 +28,7 @@
   - [urlencode](#urlencode)
   - [vi](#vi)
   - [wget](#wget)
+  - [which](#which)
   - [yum](#yum)
     - [系统](#系统)
     - [软件包](#软件包)
@@ -165,9 +166,10 @@
   ```
 
 ## grep
-
+- `cat your_file.txt | grep -A 2 "example"`  输出每个匹配行的后2行
+- `cat your_file.txt | grep -B 2 "example"`  输出每个匹配行的前2行
+- `cat your_file.txt | grep -C 2 "example"`  输出每个匹配行的前后2行
 - `-E` 
-
 ``` bash
 grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
 ```
@@ -317,7 +319,7 @@ screen -wipe  清除dead状态的会话
 
 ## unzip
 
-- 解压 unzip file -d path
+- 解压 unzip tiles.zip -d /home/map/xg/
 
 ## urlencode
 
@@ -356,6 +358,9 @@ a b
 
 
 
+
+## which
+- `which -a nginx`  输出命令的路径
 
 ## yum
 
