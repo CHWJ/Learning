@@ -3,6 +3,7 @@
   - [选择jdk](#选择jdk)
   - [设置环境变量](#设置环境变量)
   - [刷新环境变量](#刷新环境变量)
+  - [查看JVM位数](#查看jvm位数)
   - [参考](#参考)
 
 ## 选择jdk
@@ -25,6 +26,11 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ## 刷新环境变量
 ``` bash
 source /etc/profile
+```
+
+## 查看JVM位数
+``` bash
+java -d64 -version
 ```
 
 ## 参考

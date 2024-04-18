@@ -9,3 +9,14 @@ SELECT ISNUMERIC('0.6356234')  -- 1
 SELECT ISNUMERIC('-0.6356234')  -- 1
 SELECT ISNUMERIC('a0.6356234')  -- 0
 ```
+
+### FIELD(value, e1, e2, e3, e4...en)
+> 功能：根据指定元素value在输入列表“e1、e2、e3、e4...en”中的位置返回相应的位置序号，不在输入列表时则返回0。
+
+``` sql
+SELECT field(50,10,50,100);     -- 查询结果为：2
+```
+
+## MySQL函数替换为达梦函数
+
+### FIND_IN_SET -> FIELD
