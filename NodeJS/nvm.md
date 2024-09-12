@@ -19,8 +19,8 @@
 ## 加速
 
 找到nvm安装目录，编辑settings.txt文件，添加：
-- `node_mirror: https://npm.taobao.org/mirrors/node/`
-- `npm_mirror: https://npm.taobao.org/mirrors/npm/`
+- `node_mirror: https://cdn.npmmirror.com/binaries/node/`
+- `npm_mirror: https://cdn.npmmirror.com/binaries/npm/`
 
 ## 命令
 

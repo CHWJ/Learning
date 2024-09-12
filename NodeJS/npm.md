@@ -32,7 +32,7 @@
 
 ### npm 镜像
 - `npm config get registry` 读取
-- `npm config set registry https://registry.npm.taobao.org`
+- `npm config set registry https://registry.npmmirror.com/`
 
 #### NPM镜像管理工具
 
@@ -100,5 +100,5 @@
 
 #### yarn
 
-- yarn config set registry https://registry.npm.taobao.org
+- yarn config set registry https://registry.npmmirror.com/
 - yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
