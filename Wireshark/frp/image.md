@@ -1,0 +1,2 @@
+
+snowdreamtech/frps:latest

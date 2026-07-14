@@ -1,0 +1,19 @@
+bindAddr = "0.0.0.0"
+bindPort = 17000
+
+vhostHTTPPort = 40800
+vhostHTTPSPort = 40443
+
+auth.method = "token"
+auth.token = "{token value}"
+
+webServer.addr = "0.0.0.0"
+webServer.port = 17500
+webServer.user = "frps_user"
+webServer.password = "{password}"
+
+# tls
+#transport.tls.force = true
+#transport.tls.certFile = "/etc/frp/ssl/server.crt"
+#transport.tls.keyFile = "/etc/frp/ssl/server.key"
+#transport.tls.trustedCaFile = "/etc/frp/ssl/ca.crt"

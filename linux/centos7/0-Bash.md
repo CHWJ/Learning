@@ -41,6 +41,7 @@
   - [shell 命令行](#shell-命令行)
   - [数组](#数组)
   - [字符串](#字符串)
+  - [用户管理](#用户管理)
 
 
 ## echo
@@ -166,13 +167,14 @@
   ```
 
 ## grep
+- `grep -n -C 2 'example' *.yml`  输出每个匹配行的前后2行
 - `cat your_file.txt | grep -A 2 "example"`  输出每个匹配行的后2行
 - `cat your_file.txt | grep -B 2 "example"`  输出每个匹配行的前2行
 - `cat your_file.txt | grep -C 2 "example"`  输出每个匹配行的前后2行
 - `-E` 
-``` bash
-grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
-```
+  ``` bash
+  grep -E '18410034-RX.*91 0D' 2021-06-28-log.log
+  ```
 
 ## history 显示历史执行过的命令
 
@@ -314,7 +316,10 @@ screen -wipe  清除dead状态的会话
 - `tar -xf filename.tar` 解压.tar文件
 - `tar -zxf filename.tar.gz` 解压.tar.gz文件
 - 解压 tar -zxf file -C path
-- 打包后，以 gzip 压缩 tar -cvzPf /tmp/etc.tar.gz /etc .
+- 压缩
+  - 打包后，以 gzip 压缩 tar -cvzPf /tmp/etc.tar.gz /etc .
+  - tar -czvf 压缩包名.tar.gz 要压缩的目录名
+  - 更高的压缩率：tar -cjvf 压缩包名.tar.bz2 要压缩的目录名
 
 ## top -> htop
 > 动态地监视进程活动与系统负载等信息
@@ -445,3 +450,8 @@ a b
   - `${str1//23/bb}` 替换所有匹配
   - `${str1/#abc/bb}` #以什么开头来匹配
   - `${str1/%41/bb}` %以什么结尾来匹配
+
+## 用户管理
+
+- `sudo useradd -m <用户名>` 创建新用户，并且自动为用户创建home目录（例如 /home/用户名）
+- `sudo passwd <用户名>` 设置用户密码
